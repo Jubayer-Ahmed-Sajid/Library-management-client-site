@@ -1,14 +1,16 @@
-import './App.css'
+import { Children } from "react";
+import MainLayout from "./components/Layout/MainLayout";
+import { Outlet } from "react-router-dom";
 
-function App() {
+const App = () => {
+    return (
+        <div>
+            <MainLayout >
+            <Outlet></Outlet>
+            </MainLayout>
+            
+        </div>
+    );
+};
 
-  return (
-    <>
-      
-      <h1>Hello there</h1>
-      
-    </>
-  )
-}
-
-export default App
+export default App;
