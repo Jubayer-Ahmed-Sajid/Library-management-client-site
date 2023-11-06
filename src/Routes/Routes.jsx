@@ -9,6 +9,7 @@ import BorrowedBooks from "../page/Borrowed/BorrowedBooks";
 import Register from "../components/Register";
 import Root from "../Root/Root";
 import CategoryBooks from "../components/CategoryBooks/CategoryBooks";
+import Book from "../components/CategoryBooks/Book";
   
   const router = createBrowserRouter([
     {
@@ -47,6 +48,11 @@ import CategoryBooks from "../components/CategoryBooks/CategoryBooks";
           element:<CategoryBooks></CategoryBooks>,
           loader:({params})=> fetch(`http://localhost:5000/allbooks/${params.name}`)
           
+        },
+        {
+          path:'categories/:name/:id',
+          element:<Book></Book>,
+          loader:({params})=>fetch(`http://localhost:5000/allbooks/${params.name}/${params.id}`)
         }
        
       ]
