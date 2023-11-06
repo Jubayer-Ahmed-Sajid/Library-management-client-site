@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 const Category = ({ category }) => {
     const {category_name,image_url} = category
     return (
@@ -13,5 +15,8 @@ const Category = ({ category }) => {
         </div>
     );
 };
+Category.propTypes ={
+    category: PropTypes.object
+}
 
 export default Category;

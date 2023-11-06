@@ -1,21 +1,23 @@
 import {
     createBrowserRouter,
   } from "react-router-dom";
-import MainLayout from "../components/Layout/MainLayout";
-import App from "../App";
 import Login from "../page/Login/Login";
-import About from "../page/AddBook/AddBook";
-import Contact from "../page/AllBooks/AllBooks";
 import Home from "../page/Home/Home";
 import AddBook from "../page/AddBook/AddBook";
 import AllBooks from "../page/AllBooks/AllBooks";
 import BorrowedBooks from "../page/Borrowed/BorrowedBooks";
+import Register from "../components/Register";
+import Root from "../Root/Root";
   
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <App></App>,
+      element: <Root></Root>,
       children:[
+        {
+          path:'/',
+          element:<Home></Home>
+        },
        
         {
           path:'addBook',
@@ -26,20 +28,23 @@ import BorrowedBooks from "../page/Borrowed/BorrowedBooks";
           element:<AllBooks></AllBooks>
         },
         {
-          path:'/borrowed',
+          path:'borrowed',
           element:<BorrowedBooks></BorrowedBooks>
         },
+       
         {
-          path:'/',
-          element:<Home></Home>
+          path:'register',
+          element:<Register></Register>
+
+        },
+        {
+          path:'login',
+          element:<Login></Login>
         }
        
       ]
     },
-    {
-      path:'/login',
-      element:<Login></Login>
-    }
+    
   ]);
   
 
