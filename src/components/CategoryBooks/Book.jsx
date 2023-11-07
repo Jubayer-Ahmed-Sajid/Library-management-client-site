@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import axios from "axios";
 
 const Book = () => {
     const {user} = useContext(AuthContext)
     const book = useLoaderData()
-    const { name, author, rating, category_name } = book
+    const {_id, name, author, rating, category_name ,quantity} = book
     const handleBorrow = (e) => {
         e.preventDefault()
         const date = e.target.date.value;
@@ -14,7 +15,12 @@ const Book = () => {
         const name  = user.displayName;
         const email = user.email;
         const borrower = {name,email,returnDate,currentDate,book}
-        console.log(borrower)
+        const bookQuantity = {quantity}
+        console.log(bookQuantity)
+        axios.post('http://localhost:5000/borrowings',borrower)
+        .then(res => console.log(res.data))
+        axios.put(`http://localhost:5000/allbooks/${category_name}/${_id}`,bookQuantity)
+        .then(res => console.log(res.data))
     }
     return (
         <div className="card lg:card-side bg-base-100 shadow-xl">
@@ -24,6 +30,7 @@ const Book = () => {
                 <p>{author}</p>
                 <p>{category_name}</p>
                 <p>{rating}</p>
+                <p>{quantity}</p>
                 <div className="card-actions justify-end items-end flex-col">
                     <button className="btn btn-primary">Read Book</button>
                     {/* Open the modal using document.getElementById('ID').showModal() method */}

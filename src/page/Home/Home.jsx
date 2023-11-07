@@ -1,4 +1,4 @@
-import Banner from "./Header/Banner";
+import Banner from "../../components/Banner";
 import Categories from "../../components/Categories/Categories";
 
 const Home = () => {
