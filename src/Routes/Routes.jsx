@@ -10,6 +10,7 @@ import Register from "../components/Register";
 import Root from "../Root/Root";
 import CategoryBooks from "../components/CategoryBooks/CategoryBooks";
 import Book from "../components/CategoryBooks/Book";
+import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
   
   const router = createBrowserRouter([
     {
@@ -51,8 +52,8 @@ import Book from "../components/CategoryBooks/Book";
         },
         {
           path:'categories/:name/:id',
-          element:<Book></Book>,
-          loader:({params})=>fetch(`http://localhost:5000/allbooks/${params.name}/${params.id}`)
+          element:<PrivateRoutes><Book></Book></PrivateRoutes> ,
+          loader:({params})=>fetch(`http://localhost:5000/allbooks/${params.name}/${params.id}`,{credentials:"include"})
         }
        
       ]

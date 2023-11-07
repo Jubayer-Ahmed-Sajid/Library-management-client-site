@@ -3,9 +3,9 @@ import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types'
 import axios from "axios";
 
-export const AuthContext = createContext('')
+export const AuthContext = createContext()
 const AuthProvider = ({children}) => {
-    const [user,setUser] = useState('')
+    const [user,setUser] = useState(null)
     const [loading,setLoading] = useState(true)
     const auth = getAuth();
     const createUser = (email,password,photoURL,name)=>{
