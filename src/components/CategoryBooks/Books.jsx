@@ -10,7 +10,7 @@ const Books = ({ book }) => {
             <figure><img src={image} className='h-[220px]' alt="Movie" /></figure>
             </div>
             <div className="px-4">
-                <h2 className="text-md mt-8  text-font-semibold bg-primary py-2 rounded-sm w-fit px-4 text-white">{category_name} Book</h2>
+                <h2 className="text-md mt-8  text-font-semibold bg-primary py-2 rounded-sm w-fit px-4 ">{category_name} Book</h2>
                 <p className='text-secondary text-xl my-4 font-bold'>{name}</p>
                 <p className='text-tertiary text-xl my-4 font-semibold'>{author}</p>
 
@@ -21,7 +21,7 @@ const Books = ({ book }) => {
                 </div>
                 <div className="flex mb-6 w-full justify-center">
 
-                    <Link to={`/categories/${category_name}/${_id}`} className="btn bg-secondary text-white border-none">See details</Link>
+                    <Link to={`/categories/${category_name}/${_id}`} className="btn bg-secondary  border-none">See details</Link>
                 </div>
             </div>
         </div>

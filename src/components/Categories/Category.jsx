@@ -10,11 +10,11 @@ const Category = ({ category }) => {
             <figure><img src={image_url} className="object-cover h-[220px] rounded-lg" /></figure>
             </div>
             <div className="card-body">
-                <h2 className="text-xl text-white my-4 font-semibold bg-tertiary p-2 rounded-lg text-center " >{category_name} Books</h2>
+                <h2 className="text-xl  my-4 font-semibold bg-tertiary p-2 rounded-lg text-center " >{category_name} Books</h2>
                 <div className="card-actions justify-center">
                     <Link to ={`/categories/${category.category_name}`}>
 
-                    <button className="btn border-none bg-secondary text-white">See Books</button>
+                    <button className="btn border-none bg-secondary ">See Books</button>
                     </Link>
                 </div>
             </div>

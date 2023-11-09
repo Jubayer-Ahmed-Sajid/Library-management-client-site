@@ -33,12 +33,12 @@ const Navbar = () => {
         <>
 
             {/* Navbar menu content here */}
-            <NavLink className={({ isActive }) => isActive ? 'btn border-none text-white bg-secondary btn-sm' : 'btn text-white  btn-sm btn-ghost'} to='/'>Home</NavLink>
-            <NavLink className={({ isActive }) => isActive ? 'btn border-none text-white bg-secondary btn-sm' : 'btn text-white  btn-sm btn-ghost'} to='/addBook'> Add Book</NavLink>
-            <NavLink className={({ isActive }) => isActive ? 'btn border-none text-white bg-secondary btn-sm' : 'btn text-white  btn-sm btn-ghost'} to='/allBooks'> All Books</NavLink>
-            <NavLink className={({ isActive }) => isActive ? 'btn border-none text-white bg-secondary btn-sm' : 'btn text-white  btn-sm btn-ghost'} to='/borrowed'>Borrowed
+            <NavLink className={({ isActive }) => isActive ? 'btn border-none  bg-secondary btn-sm' : 'btn   btn-sm btn-ghost'} to='/'>Home</NavLink>
+            <NavLink className={({ isActive }) => isActive ? 'btn border-none  bg-secondary btn-sm' : 'btn   btn-sm btn-ghost'} to='/addBook'> Add Book</NavLink>
+            <NavLink className={({ isActive }) => isActive ? 'btn border-none  bg-secondary btn-sm' : 'btn   btn-sm btn-ghost'} to='/allBooks'> All Books</NavLink>
+            <NavLink className={({ isActive }) => isActive ? 'btn border-none  bg-secondary btn-sm' : 'btn   btn-sm btn-ghost'} to='/borrowed'>Borrowed
                 Books</NavLink>  
-            <NavLink className={({ isActive }) => isActive ? 'btn border-none text-white bg-secondary btn-sm' : 'btn text-white  btn-sm btn-ghost'} to='/login'>Login</NavLink>
+            <NavLink className={({ isActive }) => isActive ? 'btn border-none  bg-secondary btn-sm' : 'btn   btn-sm btn-ghost'} to='/login'>Login</NavLink>
         </>
 
     return (
@@ -62,13 +62,13 @@ const Navbar = () => {
             <div className="navbar-end">{
 
                 user ? <div className="gap-4 flex items-center">
-                    <p className="hidden md:flex text-white text-xl ">{user.displayName}</p>
+                    <p className="hidden md:flex  text-xl ">{user.displayName}</p>
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
                             <img src={user.photoURL} />
                         </div>
                     </label>
-                    <button className="btn bg-secondary text-white border-none mr-3" onClick={handleLogout}>Logout</button>
+                    <button className="btn bg-secondary  border-none mr-3" onClick={handleLogout}>Logout</button>
                 </div> :
                     <Link to='/login'>
 

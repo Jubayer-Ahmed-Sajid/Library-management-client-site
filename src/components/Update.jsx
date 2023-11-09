@@ -19,7 +19,7 @@ const UpdateBook = () => {
         const quantity = form.quantity.value;
         const description = form.description.value;
         const newBook = { image, name, author, category, rating, quantity, description }
-        axios.put(`https://assignment-11-server-site-ku5j0tstc-jubayer-ahmed-sajid.vercel.app/allBooks/${data.category_name}/${data._id}/${action}`, newBook)
+        axios.put(`https://assignment-11-server-site-m9nxszv8b-jubayer-ahmed-sajid.vercel.app/allBooks/${data.category_name}/${data._id}/${action}`, newBook)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({

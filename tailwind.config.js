@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
@@ -6,15 +5,16 @@ export default {
   ],
   theme: {
     extend: {
-      
       colors: {
-        'primary': '#6E43A0',     // Royal Purple
-        'secondary': '#FF5722',   // Vivid Orange
-        'tertiary': '#00A8CC',     // Turquoise Blue
-      },
       
+          primary: '#39b54a',     // Green
+          secondary: '#d8b2c9',   // Vivid Orange
+          tertiary: '#f0d8d8',    // Pale Pink
+        
+        
+      },
     },
   },
-   plugins: [require("daisyui")],
-   themes:["light","dark"]
-}
+  plugins: [require("daisyui")],
+  themes: ["light", "dark"]
+};

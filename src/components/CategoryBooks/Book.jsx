@@ -27,7 +27,7 @@ const Book = () => {
         const email = user.email;
         const borrower = { name, email, returnDate, currentDate, book }
         const bookQuantity = { quantity }
-        axios.post('https://assignment-11-server-site-ku5j0tstc-jubayer-ahmed-sajid.vercel.app/borrowings', borrower)
+        axios.post('https://assignment-11-server-site-m9nxszv8b-jubayer-ahmed-sajid.vercel.app/borrowings', borrower)
             .then(() => {
                 Swal.fire({
                     position: 'top-end',
@@ -37,7 +37,7 @@ const Book = () => {
                     timer: 2500
                 })
             })
-        axios.patch(`https://assignment-11-server-site-ku5j0tstc-jubayer-ahmed-sajid.vercel.app/allbooks/${category_name}/${_id}/${action}`, bookQuantity)
+        axios.patch(`https://assignment-11-server-site-m9nxszv8b-jubayer-ahmed-sajid.vercel.app/allbooks/${category_name}/${_id}/${action}`, bookQuantity)
             .then(() => {
                 refetch()
                 
@@ -62,9 +62,9 @@ const Book = () => {
                
                 <p>In Stock: {quantity}</p>
                 <div className="card-actions  items-end flex justify-between">
-                    <button className="btn px-7 bg-secondary text-white border-none">Read Book</button>
+                    <button className="btn px-7 bg-secondary  border-none">Read Book</button>
                     {/* Open the modal using document.getElementById('ID').showModal() method */}
-                    <button className={quantity > 0 ? "btn bg-secondary text-white border-none" : 'btn btn-disabled'} onClick={ () => document.getElementById('my_modal_5').showModal()}>Borrow Book</button>
+                    <button className={quantity > 0 ? "btn bg-secondary  border-none" : 'btn btn-disabled'} onClick={ () => document.getElementById('my_modal_5').showModal()}>Borrow Book</button>
                     <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                         <div className="modal-box">
 
