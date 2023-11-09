@@ -1,36 +1,27 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import './style.css'
+import { Pagination } from 'swiper/modules';
 const Banner = () => {
-    return (
-        <div className="carousel w-full  my-8">
-  <div id="slide1" className="carousel-item relative w-full">
-    <img src="https://img.freepik.com/premium-photo/opened-book-with-flying-pages-butterflies-dark-backgroundgenerative-ai_391052-12859.jpg" className="w-full object-cover h-[80vh]" />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide4" className="btn btn-circle">❮</a> 
-      <a href="#slide2" className="btn btn-circle">❯</a>
+  return (
+    <div className='my-12'>
+      <Swiper
+        pagination={{
+          dynamicBullets: true,
+        }}
+        modules={[Pagination]}
+        className="mySwiper"
+      >
+        <SwiperSlide className='p-12'>
+          <img src='https://img.freepik.com/free-vector/realistic-book-lovers-day-horizontal-background-with-composition-text-books-with-lamp-cup-vector-illustration_1284-77302.jpg?w=1060&t=st=1699545599~exp=1699546199~hmac=8a4dd0e9a12a13194146df5d9e43ee67a519c59c4fe92960b23cae037726cc7b' className='' alt="" />
+        </SwiperSlide>
+        <SwiperSlide className='p-12'><img src='https://img.freepik.com/free-vector/minimal-book-club-facebook-cover_23-2149758174.jpg?size=626&ext=jpg&ga=GA1.1.1575630494.1697804400&semt=ais' alt="" /></SwiperSlide>
+        <SwiperSlide className='p-12'><img src="https://img.freepik.com/premium-vector/book-exchange-landing-page-template-bookcrossing-vector-illustration-banner-education-knowledge-concept-diverse-hands-holding-books-swap-literature_534430-955.jpg?size=626&ext=jpg&ga=GA1.1.1575630494.1697804400&semt=ais" alt="" /></SwiperSlide>
+  
+      </Swiper>
     </div>
-  </div> 
-  <div id="slide2" className="carousel-item relative w-full">
-    <img src="/images/stock/photo-1609621838510-5ad474b7d25d.jpg" className="w-full" />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide1" className="btn btn-circle">❮</a> 
-      <a href="#slide3" className="btn btn-circle">❯</a>
-    </div>
-  </div> 
-  <div id="slide3" className="carousel-item relative w-full">
-    <img src="/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full" />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide2" className="btn btn-circle">❮</a> 
-      <a href="#slide4" className="btn btn-circle">❯</a>
-    </div>
-  </div> 
-  <div id="slide4" className="carousel-item relative w-full">
-    <img src="/images/stock/photo-1665553365602-b2fb8e5d1707.jpg" className="w-full" />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide3" className="btn btn-circle">❮</a> 
-      <a href="#slide1" className="btn btn-circle">❯</a>
-    </div>
-  </div>
-</div>
-    );
+  );
 };
 
 export default Banner;
