@@ -5,7 +5,11 @@ import useBook from "../hooks/useBook";
 const UpdateBook = () => {
     const { categories, id } = useParams()
     console.log(categories, id)
-    const { data, isLoading, refetch } = useBook({categories, id})
+    const { data, isLoading} = useBook({categories, id})
+    if(isLoading){
+        return <h1>loading</h1>
+    }
+    console.log(data)
     const action = "update";
     console.log(data)
     const handleUpdateBook = (e) => {
@@ -14,29 +18,32 @@ const UpdateBook = () => {
         const image = form.image.value;
         const name = form.name.value;
         const author = form.author.value;
-        const category = form.category.value;
+        const category_name = form.category.value;
         const rating = form.rating.value;
         const quantity = form.quantity.value;
         const description = form.description.value;
-        const newBook = { image, name, author, category, rating, quantity, description }
-        axios.put(`https://assignment-11-server-site-m9nxszv8b-jubayer-ahmed-sajid.vercel.app/allBooks/${data.category_name}/${data._id}/${action}`, newBook)
+        const newBook = { image, name, author, category_name, rating, quantity, description }
+        axios.patch(`https://assignment-11-server-site-8fnihsaly-jubayer-ahmed-sajid.vercel.app/allBooks/${data.category_name}/${data._id}/${action}`, newBook)
             .then(res => {
-                if (res.data.insertedId) {
+                console.log(res.data)
+                if(res.data.modifiedCount > 0){
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Book added successfully',
+                        title: 'Book Updated successfully',
                         showConfirmButton: true,
                         timer: 2500
                     })
                 }
+                    
+                
             })
 
 
     }
     return (
         <div className="my-4">
-            <h2 className="text-3xl font-bold text-center text-accent mt-8">Add Books</h2>
+            <h2 className="text-3xl font-bold text-center text-accent mt-8">Update Books</h2>
             <form onSubmit={handleUpdateBook}>
                 <div className="flex w-full px-4 justify-around gap-4">
                     <div className="my-2 w-full">
@@ -90,7 +97,7 @@ const UpdateBook = () => {
 
 
                 </div>
-                <input type="submit" value='Add Book' name="" className="btn btn-accent w-full p-4 rounded-lg my-4" id="" />
+                <input type="submit" value='Update Book' name="" className="btn btn-accent w-full p-4 rounded-lg my-4" id="" />
             </form>
         </div>
     );

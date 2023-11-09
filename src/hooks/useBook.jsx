@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 const useBook = ({ category, id }) => {
-    const url = `https://assignment-11-server-site-m9nxszv8b-jubayer-ahmed-sajid.vercel.app/allbooks/${category}/${id}`;
+    const url = `https://assignment-11-server-site-8fnihsaly-jubayer-ahmed-sajid.vercel.app/allbooks/${category}/${id}`;
 
     const { data, isLoading, isFetched, refetch} = useQuery({
         queryKey: ['Books', category, id], // Include category and id in the query key
