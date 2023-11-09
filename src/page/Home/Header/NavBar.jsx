@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../components/AuthProvider/AuthProvider";
+import logo from '../../../assets/coollogo_com-47451213.png'
 const Navbar = () => {
     const { user, LogOut, loading } = useContext(AuthContext)
     const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light")
@@ -52,7 +53,7 @@ const Navbar = () => {
                         {navLink}
                     </ul>
                 </div>
-                <img src="https://i.ibb.co/Cwnb4rN/coollogo-com-1448952.png" className="h-4 md:h-8 w-24 md:w-48" alt="" />
+                <img src={logo} className="h-7 md:h-16 w-8 md:w-56" alt="" />
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -65,7 +66,7 @@ const Navbar = () => {
                     <p className="hidden md:flex  text-xl ">{user.displayName}</p>
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            <img src={user.photoURL} />
+                            <img src= {user.photoURL}/>
                         </div>
                     </label>
                     <button className="btn bg-secondary  border-none mr-3" onClick={handleLogout}>Logout</button>
