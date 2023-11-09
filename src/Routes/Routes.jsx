@@ -11,6 +11,9 @@ import Root from "../Root/Root";
 import CategoryBooks from "../components/CategoryBooks/CategoryBooks";
 import Book from "../components/CategoryBooks/Book";
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
+import UpdateBook from "../components/Update";
+
+
   
   const router = createBrowserRouter([
     {
@@ -24,15 +27,15 @@ import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
        
         {
           path:'addBook',
-          element:<AddBook></AddBook>
+          element:<PrivateRoutes><AddBook></AddBook></PrivateRoutes>
         },
         {
           path:'allBooks',
-          element:<AllBooks></AllBooks>
+          element:<PrivateRoutes><AllBooks></AllBooks></PrivateRoutes>
         },
         {
           path:'borrowed',
-          element:<BorrowedBooks></BorrowedBooks>
+          element:<PrivateRoutes><BorrowedBooks></BorrowedBooks></PrivateRoutes>
         },
        
         {
@@ -45,15 +48,17 @@ import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
           element:<Login></Login>
         },
         {
-          path:'categories/:name',
-          element:<CategoryBooks></CategoryBooks>,
-          loader:({params})=> fetch(`http://localhost:5000/allbooks/${params.name}`)
+          path:'categories/:categoryName',
+          element:<PrivateRoutes><CategoryBooks></CategoryBooks></PrivateRoutes>
           
         },
         {
-          path:'categories/:name/:id',
+          path:'categories/:category/:id',
           element:<PrivateRoutes><Book></Book></PrivateRoutes> ,
-          loader:({params})=>fetch(`http://localhost:5000/allbooks/${params.name}/${params.id}`,{credentials:"include"})
+        },
+        {
+          path:'update/:categories/:id',
+          element:<PrivateRoutes><UpdateBook></UpdateBook></PrivateRoutes>
         }
        
       ]

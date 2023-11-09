@@ -12,7 +12,7 @@ const AddBook = () => {
         const quantity = form.quantity.value;
         const description = form.description.value;
         const book  = {image,name,author,category,rating,quantity,description}
-        axios.post('http://localhost:5000/allBooks',book)
+        axios.post('https://assignment-11-server-site-ku5j0tstc-jubayer-ahmed-sajid.vercel.app/allBooks',book)
         .then(res => {
             if(res.data.insertedId){
                 Swal.fire({

@@ -1,20 +1,21 @@
-import { useContext, useEffect } from "react";
-import { AuthContext } from "../../components/AuthProvider/AuthProvider";
-import axios from "axios";
+import useBorrow from "../../hooks/useBorrow";
+import Borrowed from "./Borrowed";
 const BorrowedBooks = () => {
-    const {user} = useContext(AuthContext)
-    console.log(user.email)
-   const url = `http://localhost:5000/borrowings?email=${user.email}`
    
+const {data,isLoading,refetch} = useBorrow()
+if(isLoading){
+    return <h1>loading</h1>
+}
 
-       useEffect(()=>{
-        axios.get(url)
-        .then(res => console.log(res.data))
-       })
-   
+
     return (
         <div>
-            <h1>Borrowed books</h1>
+            <h2 className="text-2xl font-bold text-center my-4">Your total Borrowed Books: {data?.length}</h2>
+            <div className="grid lg:grid-cols-4 md:grid-cols-3 gap-4">
+                {
+                    data?.map((borrowedBook, ind) => <Borrowed key={ind} refetch={refetch} borrowedBook={borrowedBook}></Borrowed>)
+                }
+            </div>
         </div>
     );
 };

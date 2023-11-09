@@ -1,6 +1,6 @@
 const Banner = () => {
     return (
-        <div className="carousel w-full my-8">
+        <div className="carousel w-full  my-8">
   <div id="slide1" className="carousel-item relative w-full">
     <img src="https://img.freepik.com/premium-photo/opened-book-with-flying-pages-butterflies-dark-backgroundgenerative-ai_391052-12859.jpg" className="w-full object-cover h-[80vh]" />
     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

@@ -31,13 +31,13 @@ const AuthProvider = ({children}) => {
             setUser(currentUser)
             setLoading(false)
             if (currentUser) {
-                axios.post('http://localhost:5000/jwt', loggedinUser, { withCredentials: true })
+                axios.post('https://assignment-11-server-site-ku5j0tstc-jubayer-ahmed-sajid.vercel.app/jwt', loggedinUser, { withCredentials: true })
                     .then(res => {
-                        console.log('token response', res.data);
+                        console.log(res.data)
                     })
             }
             else {
-                axios.post('http://localhost:5000/logout', loggedinUser, {
+                axios.post('https://assignment-11-server-site-ku5j0tstc-jubayer-ahmed-sajid.vercel.app/logout', loggedinUser, {
                     withCredentials: true
                 })
                     .then(res => {

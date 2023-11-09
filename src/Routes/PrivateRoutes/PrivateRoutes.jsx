@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 
 const PrivateRoutes = ({children}) => {
     const {user,loading} = useContext(AuthContext)
-    console.log(user,loading)
     if(loading){
         return <h2>Loading...</h2>
     }

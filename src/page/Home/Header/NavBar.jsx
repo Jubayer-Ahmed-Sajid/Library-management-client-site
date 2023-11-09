@@ -3,18 +3,18 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../components/AuthProvider/AuthProvider";
 const Navbar = () => {
     const { user, LogOut, loading } = useContext(AuthContext)
-    const [theme,setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light")
-    useEffect(()=>{
+    const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light")
+    useEffect(() => {
         localStorage.setItem("theme", theme)
         const localTheme = localStorage.getItem("theme")
-        document.querySelector("html").setAttribute("data-theme",localTheme)
-    },[theme])
-    const handleToggle= (e)=>{
-        if(e.target.checked){
+        document.querySelector("html").setAttribute("data-theme", localTheme)
+    }, [theme])
+    const handleToggle = (e) => {
+        if (e.target.checked) {
             setTheme("dark")
         }
         else
-        setTheme ("light")
+            setTheme("light")
     }
     if (loading) {
         return <span className="loading loading-spinner text-error"></span>
@@ -32,21 +32,21 @@ const Navbar = () => {
     const navLink =
         <>
 
-             {/* Navbar menu content here */}
-             <NavLink className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-sm btn-ghost'} to='/'>Home</NavLink>
-                    <NavLink className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-sm btn-ghost'} to='/addBook'> Add Book</NavLink>
-                    <NavLink className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-sm btn-ghost'} to='/allBooks'> All Books</NavLink>
-                    <NavLink className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-sm btn-ghost'} to='/borrowed'>Borrowed
-                        Books</NavLink>
-                    <NavLink className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-sm btn-ghost'} to='/login'>Login</NavLink>
+            {/* Navbar menu content here */}
+            <NavLink className={({ isActive }) => isActive ? 'btn border-none text-white bg-secondary btn-sm' : 'btn text-white  btn-sm btn-ghost'} to='/'>Home</NavLink>
+            <NavLink className={({ isActive }) => isActive ? 'btn border-none text-white bg-secondary btn-sm' : 'btn text-white  btn-sm btn-ghost'} to='/addBook'> Add Book</NavLink>
+            <NavLink className={({ isActive }) => isActive ? 'btn border-none text-white bg-secondary btn-sm' : 'btn text-white  btn-sm btn-ghost'} to='/allBooks'> All Books</NavLink>
+            <NavLink className={({ isActive }) => isActive ? 'btn border-none text-white bg-secondary btn-sm' : 'btn text-white  btn-sm btn-ghost'} to='/borrowed'>Borrowed
+                Books</NavLink>  
+            <NavLink className={({ isActive }) => isActive ? 'btn border-none text-white bg-secondary btn-sm' : 'btn text-white  btn-sm btn-ghost'} to='/login'>Login</NavLink>
         </>
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-primary">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-tertiary bg-tertiary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         {navLink}
@@ -62,13 +62,13 @@ const Navbar = () => {
             <div className="navbar-end">{
 
                 user ? <div className="gap-4 flex items-center">
-                    <p className="hidden md:flex ">{user.displayName}</p>
+                    <p className="hidden md:flex text-white text-xl ">{user.displayName}</p>
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
                             <img src={user.photoURL} />
                         </div>
                     </label>
-                    <button className="btn" onClick={handleLogout}>Logout</button>
+                    <button className="btn bg-secondary text-white border-none mr-3" onClick={handleLogout}>Logout</button>
                 </div> :
                     <Link to='/login'>
 
