@@ -4,7 +4,7 @@ Welcome to the Library Management Website, a platform for users to borrow and re
 
 ## Live Demo
 
-Check out the live demo of the Library Management Website: [Live Demo]((https://assignment-11-3e9b0.web.app))
+Check out the live demo of the Library Management Website: [Live Demo](https://assignment-11-3e9b0.web.app))
 
 ## Features
 
