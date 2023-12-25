@@ -15,7 +15,7 @@ const Book = () => {
         return <h1>loading</h1>
     }
     const book = data
-    const { _id, name, author, rating, category_name, quantity } = data
+    const { _id,image,name, author, rating, category_name, quantity } = data
     const action = 'borrow'
     
     const handleBorrow = (e) => {
@@ -48,7 +48,7 @@ const Book = () => {
         <div className="card lg:card-side bg-base-100 shadow-xl">
             <div className="bg-primary flex items-center rounded-xl w-1/2 justify-center m-4">
 
-                <figure><img src="https://i.ibb.co/RYqscF8/Winnertsktgkg.jpg" className="h-48 object-cover" alt="Album" /></figure>
+                <figure><img src={image} className="h-48 object-cover" alt="Album" /></figure>
             </div>
             <div className="card-body space-y-4">
                 <h2 className="card-title">{name}</h2>
