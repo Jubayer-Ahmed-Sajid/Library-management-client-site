@@ -23,7 +23,7 @@ const UpdateBook = () => {
         const quantity = form.quantity.value;
         const description = form.description.value;
         const newBook = { image, name, author, category_name, rating, quantity, description }
-        axios.patch(`https://assignment-11-server-site-8fnihsaly-jubayer-ahmed-sajid.vercel.app/allBooks/${data.category_name}/${data._id}/${action}`, newBook)
+        axios.patch(`https://assignment-11-server-site-4jptgqsg4-jubayer-ahmed-sajid.vercel.app/allBooks/${data.category_name}/${data._id}/${action}`, newBook)
             .then(res => {
                 console.log(res.data)
                 if(res.data.modifiedCount > 0){

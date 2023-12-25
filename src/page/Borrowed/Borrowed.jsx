@@ -21,7 +21,7 @@ const Borrowed = ({ borrowedBook,refetch}) => {
             confirmButtonText: "Yes, Return it!"
           }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`https://assignment-11-server-site-8fnihsaly-jubayer-ahmed-sajid.vercel.app/borrowings/${id}`)
+                axios.delete(`https://assignment-11-server-site-4jptgqsg4-jubayer-ahmed-sajid.vercel.app/borrowings/${id}`)
                 .then((res)=>{
                     console.log(res.data)
                     Swal.fire({
@@ -36,7 +36,7 @@ const Borrowed = ({ borrowedBook,refetch}) => {
             }
           });
         
-            axios.patch(`https://assignment-11-server-site-8fnihsaly-jubayer-ahmed-sajid.vercel.app/allbooks/${category_name}/${_id}/${action}`,bookQuantity)
+            axios.patch(`https://assignment-11-server-site-4jptgqsg4-jubayer-ahmed-sajid.vercel.app/allbooks/${category_name}/${_id}/${action}`,bookQuantity)
             .then((res) => {
                 console.log(res.data)
                 refetch();
