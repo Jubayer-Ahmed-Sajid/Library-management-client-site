@@ -11,7 +11,8 @@ const AddBook = () => {
         const rating = form.rating.value;
         const quantity = form.quantity.value;
         const description = form.description.value;
-        const book  = {image,name,author,category,rating,quantity,description}
+        const addedDate = new Date();
+        const book  = {image,name,author,category,rating,quantity,description,addedDate: addedDate.toISOString()}
         axios.post('https://assignment-11-server-site-8fnihsaly-jubayer-ahmed-sajid.vercel.app/allBooks',book)
         .then(res => {
             if(res.data.insertedId){

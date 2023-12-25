@@ -2,6 +2,7 @@ import BooksCard from "./BooksCard";
 import useAllBooks from "../../hooks/allBooks";
 import { useState } from "react";
 import axios from "axios";
+
 "../../hooks/allBooks";
 
 const AllBooks = () => {
@@ -12,7 +13,10 @@ const AllBooks = () => {
         const handleSearch = async () => {
             const response = await axios.get(`http://localhost:5000/books/search?name=${query}`);
             console.log(response)
-            setDisplayBooks(response.data);
+            if(response.data.length){
+                setDisplayBooks(response.data);
+            }
+           
 
         };
     return (
