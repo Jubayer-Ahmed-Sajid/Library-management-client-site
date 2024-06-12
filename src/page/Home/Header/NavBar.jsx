@@ -1,9 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../components/AuthProvider/AuthProvider";
 import logo from "../../../assets/library_logo.png";
 import { IoMdClose } from "react-icons/io";
 import { IoMdMenu } from "react-icons/io";
+import { CgProfile } from "react-icons/cg";
+import { MdDashboardCustomize, MdLogout } from "react-icons/md";
+
 const Navbar = () => {
   const { user, LogOut, loading } = useContext(AuthContext);
 
@@ -14,6 +17,9 @@ const Navbar = () => {
 
   //dropdown menu state management
   const [dropdown, setDropdown] = useState(false);
+
+  // dashboard dropdown
+  const [dashboard, setDashboard] = useState(false);
 
   // Theme toggle effect
   useEffect(() => {
@@ -85,6 +91,18 @@ const Navbar = () => {
       >
         Borrowed Books
       </NavLink>
+      {!user && (
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "btn text-sm border-none text-texts bg-secondary px-5 py-3"
+              : "btn text-sm  px-5 py-3 text-white btn-ghost"
+          }
+          to="/login"
+        >
+          Login
+        </NavLink>
+      )}
     </>
   );
 
@@ -125,7 +143,6 @@ const Navbar = () => {
             </ul>
           )}
         </div>
-
       </div>
 
       {/* Menu for large device */}
@@ -134,21 +151,58 @@ const Navbar = () => {
       </div>
 
       {/* Profile information */}
-      <div className="">
-        {user ? (
+      <div>
+        {user && (
           <div className="gap-4 flex items-center">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src={user.photoURL} />
+            <label tabIndex={0} className="shadow-lg avatar">
+              <div className="w-12 rounded-full">
+                <img
+
+                  className="btn btn-ghost btn-circle "
+                  onClick={() => setDashboard(!dashboard)}
+                  src={user.photoURL}
+                />
               </div>
+
+              {dashboard && (
+                <div>
+                  <div className="absolute right-1 w-8 h-8 top-16  bg-secondary rotate-45 border-l-2 z-30 border-t-2 border-l-accent border-t-accent "></div>
+
+
+                  <ul className="absolute md:w-56 text-lg w-44 bg-secondary rounded-lg text-texts md:-left-32 -left-24 right-0 text-start top-20 shadow-lg z-20 flex flex-col gap-2 md:space-y-3 space-y-2 md:py-6 py-4 px-3 md:px-6 border-accent border-2 ">
+
+
+                    <li className="mt-3 text-center  md:text-lg">
+                      {user.displayName}
+                    </li>
+
+
+                    <hr className="border-b-2 mb-2 border-b-accent m-0 font-bold" />
+
+
+                    <li className="flex items-center gap-2">
+                      <CgProfile className="text-accent text-2xl selection:text-2xl"></CgProfile>
+                      <p>Profile</p>
+                    </li>
+
+
+                    <li className="flex items-center gap-2">
+                      <MdDashboardCustomize className="text-accent text-2xl"></MdDashboardCustomize>
+                      <p>Dashboard</p>
+                    </li>
+
+
+                    <button className="flex items-center gap-2">
+                      <MdLogout className="text-accent text-2xl"></MdLogout>
+                      <p className="text-lg" onClick={handleLogout}>
+                        Logout
+                      </p>
+                    </button>
+                  </ul>
+                </div>
+              )}
             </label>
           </div>
-        ) : (
-          <Link to="/login">
-            <button className="btn bg-accent border-texts text-white mx-6">
-              Login
-            </button>
-          </Link>
         )}
         <label className="swap swap-rotate">
           {/* this hidden checkbox controls the state */}
