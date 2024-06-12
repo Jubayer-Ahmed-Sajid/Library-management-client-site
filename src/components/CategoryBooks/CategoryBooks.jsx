@@ -10,7 +10,7 @@ const CategoryBooks = () => {
         return <h1>Loading</h1>
     }
     return (
-        <div>
+        <div className="mt-28">
 
            <h2 className="text-3xl text-center font-bold  my-6">{categoryName} Books</h2> 
            <div className="grid  lg:grid-cols-4 md:grid-cols-3 gap-4 px-4 bg-base-300 ">

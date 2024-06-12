@@ -45,7 +45,7 @@ const Book = () => {
             })
     }
     return (
-        <div className="card lg:card-side bg-base-100 shadow-xl">
+        <div className="card lg:card-side mt-28 bg-base-100 shadow-xl">
             <div className="bg-primary flex items-center rounded-xl w-1/2 justify-center m-4">
 
                 <figure><img src={image} className="h-48 object-cover" alt="Album" /></figure>

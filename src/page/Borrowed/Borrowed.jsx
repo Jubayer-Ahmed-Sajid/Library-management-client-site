@@ -48,7 +48,7 @@ const Borrowed = ({ borrowedBook,refetch}) => {
 
 
     return (
-        <div className="card  glass">
+        <div className="card mt-28 glass">
             <figure><img src={image} alt="car!" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>

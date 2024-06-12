@@ -20,7 +20,7 @@ const AllBooks = () => {
 
         };
     return (
-        <div>
+        <div className="mt-28">
             <h3 className="my-8 text-2xl font-bold text-center">Total Books:{displayBooks?.length}</h3>
             <div className='lg:flex items-center flex-row justify-center mb-8 w-full'>
                 <input type="text"

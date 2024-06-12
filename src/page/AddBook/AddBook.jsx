@@ -29,7 +29,7 @@ const AddBook = () => {
        
     }
     return (
-        <div className="my-4">
+        <div className="mt-28 mb-4">
             <h2 className="text-3xl font-bold text-center text-accent mt-8">Add Books</h2>
             <form onSubmit={handleAddBook}>
                 <div className="flex w-full px-4 justify-around gap-4">
