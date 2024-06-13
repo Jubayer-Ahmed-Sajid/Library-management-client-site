@@ -5,7 +5,7 @@ const Category = ({ category }) => {
     const {category_name,image_url} = category
     return (
         <div className="card  bg-base-300 shadow-xl">
-            <div className='bg-primary p-4'>
+            <div>
 
             <figure><img src={image_url} className="object-cover h-[220px] rounded-lg" /></figure>
             </div>
@@ -14,7 +14,7 @@ const Category = ({ category }) => {
                 <div className="card-actions justify-center">
                     <Link to ={`/categories/${category.category_name}`}>
 
-                    <button className="btn border-none bg-secondary ">See Books</button>
+                    <button className="btn border-none bg-primary text-white font-semibold text-lg ">See Books</button>
                     </Link>
                 </div>
             </div>
