@@ -15,6 +15,7 @@ const Book = () => {
         return <h1>loading</h1>
     }
     const book = data
+    console.log(book);
     const { _id,image,name, author, rating, category_name, quantity } = data
     const action = 'borrow'
     
@@ -27,7 +28,7 @@ const Book = () => {
         const email = user.email;
         const borrower = { name, email, returnDate, currentDate, book }
         const bookQuantity = { quantity }
-        axios.post('https://assignment-11-server-site-4jptgqsg4-jubayer-ahmed-sajid.vercel.app/borrowings', borrower)
+        axios.post('http://localhost:5000/borrowings', borrower)
             .then(() => {
                 Swal.fire({
                     position: 'top-end',
@@ -37,7 +38,7 @@ const Book = () => {
                     timer: 2500
                 })
             })
-        axios.patch(`https://assignment-11-server-site-4jptgqsg4-jubayer-ahmed-sajid.vercel.app/allbooks/${category_name}/${_id}/${action}`, bookQuantity)
+        axios.patch(`http://localhost:5000/allbooks/${category_name}/${_id}/${action}`, bookQuantity)
             .then((res) => {
                 console.log(res.data)
                 refetch()
