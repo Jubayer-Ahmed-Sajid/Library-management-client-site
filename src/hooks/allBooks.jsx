@@ -5,7 +5,7 @@ const useAllBooks= () => {
     const { data, isLoading ,isFetched,refetch} = useQuery({
         queryKey: ['categoryBooks'],
         queryFn: async () => {
-            const data = await fetch('http://localhost:5000/allbooks')
+            const data = await fetch('https://library-management-server-site.vercel.app/allbooks')
             return await data.json()
         },
     });

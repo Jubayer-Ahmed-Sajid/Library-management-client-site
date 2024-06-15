@@ -13,7 +13,7 @@ const AddBook = () => {
         const description = form.description.value;
         const addedDate = new Date();
         const book  = {image,name,author,category,rating,quantity,description,addedDate: addedDate.toISOString()}
-        axios.post('http://localhost:5000/allBooks',book)
+        axios.post('https://library-management-server-site.vercel.app/allBooks',book)
         .then(res => {
             if(res.data.insertedId){
                 Swal.fire({

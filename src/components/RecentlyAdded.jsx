@@ -8,7 +8,7 @@ const RecentlyAdded = () => {
 
   useEffect(() => {
     const fetchRecentBooks = async () => {
-      const response = await axios.get("http://localhost:5000/books/recent");
+      const response = await axios.get("https://library-management-server-site.vercel.app/books/recent");
       console.log(response.data);
       setRecentBooks(response.data);
     };

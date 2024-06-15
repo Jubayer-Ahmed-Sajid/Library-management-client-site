@@ -9,7 +9,6 @@ const Register = () => {
   const { createUser, signUpWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate("");
   const [errors, setError] = useState("");
-  const [successMessage, setSuccess] = useState("");
 
   const handleRegistration = (e) => {
     e.preventDefault();
@@ -84,11 +83,11 @@ const Register = () => {
   const handleGoogleSignUp = () => {
     signUpWithGoogle()
       .then(() => {
-        setSuccess("User created successfully");
+       
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: successMessage,
+          title: "User created successfully",
           showConfirmButton: true,
           timer: 2500,
         });

@@ -10,7 +10,7 @@ const Borrowed = ({ borrowedBook, refetch }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/allbooks/${category_name}/${book._id}`)
+      .get(`https://library-management-server-site.vercel.app/allbooks/${category_name}/${book._id}`)
       .then((res) => {
         setBookQuantity(res.data.quantity);
       });
@@ -28,7 +28,7 @@ const Borrowed = ({ borrowedBook, refetch }) => {
       confirmButtonText: "Yes, Return it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/borrowings/${id}`).then((res) => {
+        axios.delete(`https://library-management-server-site.vercel.app/borrowings/${id}`).then((res) => {
           console.log(res.data);
           Swal.fire({
             title: "You have successfully returned the book",
@@ -41,7 +41,7 @@ const Borrowed = ({ borrowedBook, refetch }) => {
 
       axios
         .patch(
-          `http://localhost:5000/allbooks/${category_name}/${book._id}/${action}`,
+          `https://library-management-server-site.vercel.app/allbooks/${category_name}/${book._id}/${action}`,
          {bookQuantity}
         )
         .then((res) => {

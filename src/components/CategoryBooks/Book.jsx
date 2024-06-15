@@ -28,7 +28,7 @@ const Book = () => {
         const email = user.email;
         const borrower = { name, email, returnDate, currentDate, book }
         const bookQuantity = { quantity }
-        axios.post('http://localhost:5000/borrowings', borrower)
+        axios.post('https://library-management-server-site.vercel.app/borrowings', borrower)
             .then(() => {
                 Swal.fire({
                     position: 'top-end',
@@ -38,7 +38,7 @@ const Book = () => {
                     timer: 2500
                 })
             })
-        axios.patch(`http://localhost:5000/allbooks/${category_name}/${_id}/${action}`, bookQuantity)
+        axios.patch(`https://library-management-server-site.vercel.app/allbooks/${category_name}/${_id}/${action}`, bookQuantity)
             .then((res) => {
                 console.log(res.data)
                 refetch()

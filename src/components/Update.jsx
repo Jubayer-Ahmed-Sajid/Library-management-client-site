@@ -23,7 +23,7 @@ const UpdateBook = () => {
         const quantity = form.quantity.value;
         const description = form.description.value;
         const newBook = { image, name, author, category_name, rating, quantity, description }
-        axios.patch(`http://localhost:5000/allBooks/${data.category_name}/${data._id}/${action}`, newBook)
+        axios.patch(`https://library-management-server-site.vercel.app/allBooks/${data.category_name}/${data._id}/${action}`, newBook)
             .then(res => {
                 console.log(res.data)
                 if(res.data.modifiedCount > 0){
