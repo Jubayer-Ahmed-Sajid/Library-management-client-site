@@ -9,7 +9,7 @@ import { MdDashboardCustomize, MdLogout } from "react-icons/md";
 import text_logo from "../../../assets/cooltext460147309304020.png";
 
 const Navbar = () => {
-  const { user, LogOut} = useContext(AuthContext);
+  const { user, LogOut } = useContext(AuthContext);
   const [fix, setFix] = useState(false);
 
   //Theme state management
@@ -31,14 +31,13 @@ const Navbar = () => {
   // }, [theme]);
 
   // navbar color change
-  const setNavColor =()=>{
-    if(window.scrollY >= 392){
+  const setNavColor = () => {
+    if (window.scrollY >= 392) {
       setFix(true);
-    }
-    else setFix(false);
-  }
+    } else setFix(false);
+  };
 
-  window.addEventListener("scroll",setNavColor)
+  window.addEventListener("scroll", setNavColor);
   // const handleToggle = (e) => {
   //   if (e.target.checked) {
   //     setTheme("dark");
@@ -106,8 +105,15 @@ const Navbar = () => {
   );
 
   return (
+
+    <div>
+
     <div
-      className={`flex items-center fixed left-0 right-0 md:left-12 navbar md:w-11/12 px-4 rounded-3xl justify-around z-40 opacity-90 ${fix ? "bg-black text-white top-1 transition-all duration-500 ease-in-out" : "bg-white top-3 transition-all duration-500 ease-in-out"}`}
+      className={`flex items-center max-w-7xl fixed navbar px-4 rounded-3xl justify-around z-40 opacity-90 ${
+        fix
+        ? "bg-black text-white top-3 transition-all duration-500 ease-in-out"
+        : "bg-black text-white top-1 transition-all duration-500 ease-in-out"
+      }`}
     >
       {/* website logo */}
 
@@ -234,6 +240,7 @@ const Navbar = () => {
           </svg> */}
         </label>
       </div>
+    </div>
     </div>
   );
 };

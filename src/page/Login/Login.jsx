@@ -38,12 +38,12 @@ import { useContext } from "react";
         }
     
         return (
-            <div className="hero min-h-screen " style={{ backgroundImage: "url('https://i.ibb.co/j6SfB4s/pexels-tirachard-kumtanom-733852.jpg')" }}>
+            <div className="hero mt-16 min-h-screen " style={{ backgroundImage: "url('https://i.ibb.co/j6SfB4s/pexels-tirachard-kumtanom-733852.jpg')" }}>
                 <div className="hero-content flex-col lg:flex-row-reverse">
 
                     <div className="card flex-shrink-0  max-w-lg shadow-xl  w-[40vw] bg-transparent">
                         <form className="card-body" onSubmit={handleSignIn}>
-                            <h2 className="text-3xl font-bold text-center text-accent bg-black py-4">Please Login! </h2>
+                            <h2 className="text-3xl font-bold rounded-lg text-center text-accent bg-black py-4">Please Login! </h2>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text text-2xl text-accent">Email</span>
@@ -58,9 +58,9 @@ import { useContext } from "react";
 
                             </div>
                             <div className="form-control mt-6">
-                                <input type="submit" value='Login' className="btn btn-accent"/>
+                                <input type="submit" value='Login' className="btn btn-accent text-white"/>
                             </div>
-                            <Link className="my-4" to='/register'>New to the site ? Please <span className="text-blue-400 hover:underline">Register</span></Link>
+                            <Link className="my-4 text-center" to='/register'>New to the site ? Please <span className="text-blue-400 hover:underline">Register</span></Link>
 
                         </form>
                     </div>
