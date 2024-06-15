@@ -1,6 +1,6 @@
 const Trending = () => {
   return (
-    <div>
+    <div className="mt-28">
       <h2 className="text-3xl font-bold my-12 text-center">Trending Books</h2>
       <div className="grid gap-4 md:grid-cols-5  bg-tertiary p-4 rounded-lg my-12">
         <div>

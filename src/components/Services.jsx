@@ -3,7 +3,7 @@ import track from '../assets/track.png'
 import library from '../assets/library_explorer.png'
 const Services = () => {
     return (
-        <div>
+        <div className='mt-28'>
             <h2 className='text-3xl text-center font-bold my-12'> Our Exclusiveness</h2>
         <div className="grid lg:grid-cols-3 lg:gap-3 gap-6 bg-secondary p-12 rounded-lg my-12">
             <div className='flex lg:flex-row items-center flex-col gap-8'>
